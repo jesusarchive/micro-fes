@@ -1,17 +1,27 @@
 import React from "react";
 
-const Navbar = ({ onClick }) => {
+const classNames = (...classNames) => {
+  return classNames.filter(Boolean).join(" ");
+};
+
+const Navbar = ({ selected = "ira", onChange }) => {
+  const apps = ["ira", "gnd", "imms"];
+
   return (
-    <nav className="flex flex-col w-1/6 p-2 text-pink-200 capitalize border-2">
-      <button className="hover:text-red-600" onClick={(e) => onClick("ira", e)}>
-        IRA
-      </button>
-      <button className="hover:text-red-600" onClick={(e) => onClick("gnd", e)}>
-        GND
-      </button>
-      <button className="hover:text-red-600" onClick={(e) => onClick("mms", e)}>
-        MMS
-      </button>
+    <nav className="flex flex-col w-1/6 p-2 text-pink-200 border-2">
+      {apps.map((app) => (
+        <button
+          className={classNames(
+            "uppercase",
+            "text-left",
+            "hover:text-red-600",
+            selected === app && "text-indigo-400"
+          )}
+          onClick={() => onChange(app)}
+        >
+          {app}
+        </button>
+      ))}
     </nav>
   );
 };
