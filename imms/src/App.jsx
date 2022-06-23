@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Gnd from "./Gnd";
+import Imms from "./Imms";
 import "./index.scss";
 
 const App = () => (
   <div>
-    <Gnd />
+    <Imms />
   </div>
 );
-
 ReactDOM.render(<App />, document.getElementById("app"));
