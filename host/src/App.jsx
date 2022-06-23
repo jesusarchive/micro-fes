@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import Ira from "remote/Ira";
-import Gnd from "remote2/Gnd";
+import Ira from "remote0/Ira";
+import Gnd from "remote1/Gnd";
+import Imms from "remote2/Imms";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -10,6 +11,7 @@ import "./index.scss";
 
 const App = () => {
   const [selectedApp, setSelectedApp] = useState("ira");
+
   return (
     <div className="h-screen w-full flex flex-col bg-black text-white">
       <Header />
@@ -20,6 +22,7 @@ const App = () => {
         <div className="w-full h-50 border-2">
           {selectedApp === "ira" && <Ira />}
           {selectedApp === "gnd" && <Gnd />}
+          {selectedApp === "imms" && <Imms />}
         </div>
       </article>
 
