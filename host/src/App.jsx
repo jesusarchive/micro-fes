@@ -1,32 +1,43 @@
+import Gnd from "gnd/Gnd";
+import Imms from "imms/Imms";
+import IraHome from "ira/IraHome";
+import IraProducts from "ira/IraProducts";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import Ira from "remote0/Ira";
-import Gnd from "remote1/Gnd";
-import Imms from "remote2/Imms";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
+import SgaPortalFooter from "./components/sga-portal-footer";
+import SgaPortalHeader from "./components/sga-portal-header";
+import SgaPortalNavbar from "./components/sga-portal-navbar";
 import "./index.scss";
+import SgaPortalAuth from "./views/sga-portal-auth/sga-portal-auth";
 
 const App = () => {
+  const [auth, setAuth] = useState(true);
   const [selectedApp, setSelectedApp] = useState("ira");
 
   return (
     <div className="h-screen w-full flex flex-col bg-black text-white">
-      <Header />
+      <SgaPortalHeader auth={auth} onExit={() => setAuth(false)} />
 
-      <article className="h-full w-full flex flex-row">
-        <Navbar onChange={setSelectedApp} selected={selectedApp} />
+      {!auth ? (
+        <SgaPortalAuth onAuth={() => setAuth(!auth)} />
+      ) : (
+        <article className="h-full w-full flex flex-row">
+          <SgaPortalNavbar onChange={setSelectedApp} selected={selectedApp} />
 
-        <div className="w-full h-50 border-2">
-          {selectedApp === "ira" && <Ira />}
-          {selectedApp === "gnd" && <Gnd />}
-          {selectedApp === "imms" && <Imms />}
-        </div>
-      </article>
+          <div className="w-full h-50 border-2">
+            {selectedApp === "ira" && (
+              <>
+                <IraProducts />
+              </>
+            )}
+            {selectedApp === "gnd" && <Gnd />}
+            {selectedApp === "imms" && <Imms />}
+          </div>
+        </article>
+      )}
 
-      <Footer />
+      <SgaPortalFooter />
     </div>
   );
 };

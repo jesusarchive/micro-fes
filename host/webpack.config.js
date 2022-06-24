@@ -44,9 +44,9 @@ module.exports = {
       name: "host",
       filename: "remoteEntry.js",
       remotes: {
-        remote0: "ira@http://localhost:3000/remoteEntry.js",
-        remote1: "gnd@http://localhost:3001/remoteEntry.js",
-        remote2: "imms@http://localhost:3002/remoteEntry.js",
+        ira: "ira@http://localhost:3000/remoteEntry.js",
+        gnd: "gnd@http://localhost:3001/remoteEntry.js",
+        imms: "imms@http://localhost:3002/remoteEntry.js",
       },
       exposes: {},
       shared: {

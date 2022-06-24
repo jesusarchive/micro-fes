@@ -45,7 +45,8 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        "./Ira": "./src/Ira.jsx",
+        "./IraProducts": "./src/views/ira-products/index.js",
+        "./IraHome": "./src/views/ira-home/index.js",
       },
       shared: {
         ...deps,

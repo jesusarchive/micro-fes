@@ -1,6 +1,6 @@
 import React from "react";
 
-const Footer = ({}) => {
+const SgaPortalFooter = ({}) => {
   return (
     <footer className="w-full flex justify-center items-center bg-pink-800 border-2">
       <p>
@@ -10,4 +10,4 @@ const Footer = ({}) => {
   );
 };
 
-export default Footer;
+export default SgaPortalFooter;

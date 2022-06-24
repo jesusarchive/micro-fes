@@ -1,16 +1,14 @@
 import React from "react";
+import { classNames } from "../../utils";
 
-const classNames = (...classNames) => {
-  return classNames.filter(Boolean).join(" ");
-};
-
-const Navbar = ({ selected = "ira", onChange }) => {
+const SgaPortalNavbar = ({ selected = "ira", onChange }) => {
   const apps = ["ira", "gnd", "imms"];
 
   return (
     <nav className="flex flex-col w-1/6 p-2 text-pink-200 border-2">
-      {apps.map((app) => (
+      {apps.map((app, i) => (
         <button
+          key={`sga-portal-navbar-button--${i}`}
           className={classNames(
             "uppercase",
             "text-left",
@@ -28,4 +26,4 @@ const Navbar = ({ selected = "ira", onChange }) => {
   );
 };
 
-export default Navbar;
+export default SgaPortalNavbar;
