@@ -13,7 +13,7 @@ import SgaPortalAuth from "./views/sga-portal-auth/sga-portal-auth";
 
 const App = () => {
   const [auth, setAuth] = useState(true);
-  const [selectedApp, setSelectedApp] = useState("ira");
+  const [selectedApp, setSelectedApp] = useState("ira-home");
 
   return (
     <div className="h-screen w-full flex flex-col bg-black text-white">
@@ -22,15 +22,12 @@ const App = () => {
       {!auth ? (
         <SgaPortalAuth onAuth={() => setAuth(!auth)} />
       ) : (
-        <article className="h-full w-full flex flex-row">
+        <article className="h-full w-full flex flex-row overflow-scroll">
           <SgaPortalNavbar onChange={setSelectedApp} selected={selectedApp} />
 
           <div className="w-full h-50 border-2">
-            {selectedApp === "ira" && (
-              <>
-                <IraProducts />
-              </>
-            )}
+            {selectedApp === "ira-home" && <IraHome />}
+            {selectedApp === "ira-products" && <IraProducts />}
             {selectedApp === "gnd" && <Gnd />}
             {selectedApp === "imms" && <Imms />}
           </div>
