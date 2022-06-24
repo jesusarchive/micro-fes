@@ -10,14 +10,14 @@ const appsMock = [
 
 const SgaPortalNavbar = ({ selected = "ira-home", onChange }) => {
   return (
-    <nav className="flex flex-col w-1/6 p-2 text-pink-200 border-2">
-      <h1 className="text-white text-bold text-xl p-5">APPS</h1>
+    <nav className="flex flex-col w-1/6 p-2 text-pink-200 border-r-2">
+      <h1 className="text-white text-bold text-5xl p-5">APPS</h1>
       {appsMock.map(({ name, views }, i) => (
         <div
           className="flex flex-col items-start p-2"
           key={`app-group--${name}`}
         >
-          <span className="text-yellow-100 p-2 capitalize text-xl">{name}</span>
+          <span className="text-yellow-100 p-2 uppercase text-xl">{`*** ${name} ***`}</span>
           {!views && (
             <SgaPortalButton
               className={classNames(selected === name && "text-indigo-400")}

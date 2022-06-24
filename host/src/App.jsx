@@ -26,7 +26,7 @@ const App = () => {
         <article className="h-full w-full flex overflow-hidden">
           <SgaPortalNavbar onChange={setSelectedApp} selected={selectedApp} />
 
-          <div className="w-10/12 h-50 border-2">
+          <div className="w-10/12 h-50">
             {/* IRA */}
             {selectedApp === "ira-home" && <IraHome />}
             {selectedApp === "ira-products" && <IraProducts />}

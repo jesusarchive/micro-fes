@@ -20,7 +20,7 @@ const IraProducts = ({}) => {
   }, []);
 
   return (
-    <div className="h-full w-full flex flex-col text-3xl border-4 border-blue-900 text-blue-700 bg-blue-300 p-4 overflow-hidden">
+    <div className="h-full w-full flex flex-col text-3xl text-blue-700 p-4 bg-white overflow-hidden">
       <h2 className="text-3xl text-pink-700 p-8 mb-5">IRA PRODUCTS</h2>
 
       {Array.isArray(products) && products.length > 0 ? (
