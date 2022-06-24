@@ -1,4 +1,5 @@
-import Gnd from "gnd/Gnd";
+import GndBlog from "gnd/GndBlog";
+import GndHome from "gnd/GndHome";
 import Imms from "imms/Imms";
 import IraHome from "ira/IraHome";
 import IraProducts from "ira/IraProducts";
@@ -22,13 +23,17 @@ const App = () => {
       {!auth ? (
         <SgaPortalAuth onAuth={() => setAuth(!auth)} />
       ) : (
-        <article className="h-full w-full flex flex-row overflow-scroll">
+        <article className="h-full w-full flex overflow-hidden">
           <SgaPortalNavbar onChange={setSelectedApp} selected={selectedApp} />
 
-          <div className="w-full h-50 border-2">
+          <div className="w-10/12 h-50 border-2">
+            {/* IRA */}
             {selectedApp === "ira-home" && <IraHome />}
             {selectedApp === "ira-products" && <IraProducts />}
-            {selectedApp === "gnd" && <Gnd />}
+            {/* GND */}
+            {selectedApp === "gnd-home" && <GndHome />}
+            {selectedApp === "gnd-blog" && <GndBlog />}
+            {/* IMMS */}
             {selectedApp === "imms" && <Imms />}
           </div>
         </article>

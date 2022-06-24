@@ -3,6 +3,7 @@ import React from "react";
 const SgaPortalHeader = ({ auth, onExit }) => {
   return (
     <header className="h-40 w-full p-4 flex justify-around items-center border-2">
+      <h1 className="text-7xl">$HELL</h1>
       <h1 className="text-5xl font-bold">SGA PORTAL</h1>
       {auth && (
         <div className="w-30 h-30 flex flex-col items-center">

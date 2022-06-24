@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { classNames } from "../../../../host/src/utils";
 
 const GndBlogPost = ({ post }) => {
   const { id, title, body, tags, reactions, userId } = post;
   const [liked, setLiked] = useState(false);
 
   return (
-    <div className="h-2/6 border bg-white p-2">
+    <div className="h-2/6 border bg-white p-2 text-black">
       {/* HEADER */}
       <div className="h-10 w-full inline-flex items-center p-2">
         {/* ID */}
@@ -39,8 +40,11 @@ const GndBlogPost = ({ post }) => {
         </span>
         {/* LIKES */}
         <span
-          className="text-sm hover:text-red-900 cursor-pointer"
-          onClick={() => setLiked(true)}
+          className={classNames(
+            "text-sm hover:text-red-900 cursor-pointer",
+            liked && "text-lg"
+          )}
+          onClick={() => setLiked(!liked)}
         >
           {`❤️ ${liked ? reactions + 1 : reactions}`}
         </span>

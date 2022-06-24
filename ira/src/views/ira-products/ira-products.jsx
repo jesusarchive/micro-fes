@@ -20,7 +20,7 @@ const IraProducts = ({}) => {
   }, []);
 
   return (
-    <div className="h-full w-full flex flex-col text-3xl border-4 border-blue-900 text-blue-700 bg-blue-300 p-4">
+    <div className="h-full w-full flex flex-col text-3xl border-4 border-blue-900 text-blue-700 bg-blue-300 p-4 overflow-hidden">
       <h2 className="text-3xl text-pink-700 p-8 mb-5">IRA PRODUCTS</h2>
 
       {Array.isArray(products) && products.length > 0 ? (
@@ -46,7 +46,22 @@ const IraProducts = ({}) => {
                       className="bg-white text-black capitalize border-2 text-center p-1 hover:bg-yellow-100 text-sm"
                       key={`ira-products__td--${i}`}
                     >
-                      {value}
+                      {Array.isArray(value) ? (
+                        value.length > 0 && (
+                          <div className="h-30 w-30 flex inline-flex items-center overflow-scroll">
+                            {value.map(
+                              (v) =>
+                                v.includes("http") && (
+                                  <img className="h-10" src={v} />
+                                )
+                            )}
+                          </div>
+                        )
+                      ) : value?.includes?.("http") ? (
+                        <img className="h-10" src={value} />
+                      ) : (
+                        value
+                      )}
                     </td>
                   ))}
                 </tr>

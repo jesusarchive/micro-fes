@@ -4,13 +4,14 @@ import SgaPortalButton from "../sga-portal-button";
 
 const appsMock = [
   { id: "ira", name: "ira", views: ["home", "products"] },
-  { id: "gnd", name: "gnd" },
+  { id: "gnd", name: "gnd", views: ["home", "blog"] },
   { id: "imms", name: "imms" },
 ];
 
 const SgaPortalNavbar = ({ selected = "ira-home", onChange }) => {
   return (
     <nav className="flex flex-col w-1/6 p-2 text-pink-200 border-2">
+      <h1 className="text-white text-bold text-xl p-5">APPS</h1>
       {appsMock.map(({ name, views }, i) => (
         <div
           className="flex flex-col items-start p-2"

@@ -22,7 +22,7 @@ const GndBlog = ({}) => {
 
   return (
     <div className="h-full w-full flex flex-col text-3xl border-4 border-gray-900 text-orange-700 bg-gray-300 p-4 overflow-hidden">
-      <h2 className="text-3xl text-pink-700 p-8 mb-5">GND BLOG</h2>
+      <h2 className="text-3xl text-yellow-700 p-8 mb-5">GND BLOG</h2>
       <div className="h-full w-full flex flex-col overflow-scroll">
         {posts.map((post) => (
           <GndBlogPost post={post} />
