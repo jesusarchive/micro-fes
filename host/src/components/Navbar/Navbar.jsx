@@ -14,6 +14,8 @@ const Navbar = ({ selected = "ira", onChange }) => {
           className={classNames(
             "uppercase",
             "text-left",
+            "text-xl",
+            "p-2",
             "hover:text-red-600",
             selected === app && "text-indigo-400"
           )}
