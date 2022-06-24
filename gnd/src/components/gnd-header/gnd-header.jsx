@@ -3,7 +3,7 @@ import { classNames } from "../../../../host/src/utils";
 
 const GndHeader = ({ selectedView, onViewChange }) => {
   return (
-    <div className="h-50 w-full flex flex-row items-center">
+    <div className="h-50 w-full flex flex-row items-center border-b-2">
       <h1 className="text-6xl text-bold p-5">GND APP</h1>
       <div className="h-full w-full flex p-2 bg-red-100 items-end">
         <button

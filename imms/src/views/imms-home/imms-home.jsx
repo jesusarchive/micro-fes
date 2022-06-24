@@ -1,14 +1,15 @@
 import React from "react";
 
-const IraHome = ({}) => {
+const ImmsHome = ({}) => {
   return (
-    <div className="h-full w-full text-3xl text-green-700 p-4 flex flex-col justify-between bg-white">
-      <div className="p-2 w-full">
-        <div>Name: ira</div>
+    <div className="h-full w-full text-3xl text-yellow-300 p-4 flex flex-col justify-between bg-white">
+      <div className="p-2 w-2/6">
+        <div>Name: imms</div>
         <div>Framework: react</div>
         <div>Language: JavaScript</div>
         <div>CSS: Tailwind</div>
       </div>
+
       <div className="h-full w-full flex items-center justify-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +65,7 @@ const IraHome = ({}) => {
           <g>
             <g>
               <path
-                id="b-205"
+                id="b-1616"
                 d="M243.46957,228.73951c4.16581,1.09909,8.10965-.15946,8.80868-2.81073,.69903-2.65126-2.11125-5.69069-6.2787-6.78961-1.6587-.46181-3.40388-.51968-5.08952-.16875l-17.70953-4.43397-1.90359,8.35491,17.66056,3.48408c1.29365,1.13707,2.84086,1.94771,4.5121,2.36407Z"
                 fill="#ffb6b6"
               />
@@ -102,7 +103,7 @@ const IraHome = ({}) => {
             />
             <path
               d="M160.11457,169.0948l-17.82774-5.30014-3.37281,9.15478-.48183,55.89236s25.53703-5.78197,31.319,3.85465l1.92732-17.34591s6.2638-8.67295,.96366-19.75506c-5.30014-11.08211-10.29676-16.07873-10.29676-16.07873l-4.15816-2.23084,1.92732-8.19112Z"
-              fill="#19ff00"
+              fill="#6c63ff"
             />
             <path
               d="M139.63676,220.40977l-2.40915,24.57337,31.80083,6.74563s-2.40915-21.20055,.48183-26.01886l-29.8735-5.30014Z"
@@ -127,7 +128,7 @@ const IraHome = ({}) => {
             />
             <g>
               <path
-                id="c-206"
+                id="c-1617"
                 d="M92.48172,275.54219c-.67837,4.25462,.96703,8.05336,3.67477,8.48463,2.70774,.43127,5.4519-2.66798,6.12994-6.92421,.29417-1.69647,.17779-3.43873-.33941-5.081l2.6466-18.0633-8.50305-1.0613-1.70633,17.91989c-1.00245,1.40055-1.65484,3.02086-1.90253,4.72528Z"
                 fill="#ffb6b6"
               />
@@ -147,4 +148,4 @@ const IraHome = ({}) => {
   );
 };
 
-export default IraHome;
+export default ImmsHome;

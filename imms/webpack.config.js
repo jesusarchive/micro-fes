@@ -45,7 +45,7 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        "./Imms": "./src/Imms.jsx",
+        "./ImmsHome": "./src/views/imms-home/index.js",
       },
       shared: {
         ...deps,

@@ -1,31 +1,49 @@
 import React from "react";
+import { classNames } from "../../utils";
 
-const SgaPortalHeader = ({ auth, onExit }) => {
+const appsViewsMock = [
+  { id: "ira-home", name: "ira home" },
+  { id: "ira-products", name: "ira products" },
+  { id: "gnd-home", name: "gnd home" },
+  { id: "gnd-blog", name: "gnd blog" },
+  { id: "imms-home", name: "imms home" },
+];
+
+const SgaPortalHeader = ({ auth, selectedView, onViewChange, onExit }) => {
   return (
-    <header className="h-1/7 w-full p-4 flex justify-between items-center border border-2">
-      <h1 className="text-5xl font-bold">SGA PORTAL</h1>
+    <div className="h-50 w-full flex flex-row items-center border-b-2">
+      <h1 className="text-6xl text-bold p-5">HOST APP</h1>
       {auth && (
-        <div className="w-30 h-30 flex flex-row items-center">
-          <div className="h-20 w-20 flex justify-center items-center">
-            <img
-              className="h-full w-full rounded-full"
-              src="https://c.tenor.com/vjiifjWIHs4AAAAM/pingu-penguin.gif"
-              alt="pingu"
-            />
+        <div className="h-full w-full flex p-2 bg-red-100 items-end justify-around">
+          <div className="w-full flex intems-center justify-between">
+            <nav>
+              {appsViewsMock.map(({ id, name }) => (
+                <button
+                  className={classNames(
+                    "h-10 p-2 m-2 border-2 uppercase hover:bg-red-300",
+                    selectedView === id && "bg-red-200"
+                  )}
+                  onClick={() => onViewChange(id)}
+                >
+                  {name}
+                </button>
+              ))}
+            </nav>
+
+            <button
+              className="text-xl m-2 rounded-md p-1 bg-white w-30 h-10 flex text-black text-sm items-center justify-around hover:bg-red-400 hover:text-white"
+              onClick={onExit}
+            >
+              <span className="text-sm">LOG OFF</span>
+              <img
+                className="w-5"
+                src="https://cdn-icons-png.flaticon.com/512/126/126467.png"
+              />
+            </button>
           </div>
-          <button
-            className="text-xl m-2 rounded-md p-1 bg-white w-30 h-10 flex text-black text-sm items-center justify-around hover:bg-red-400 hover:text-white"
-            onClick={onExit}
-          >
-            <span className="text-sm">LOG OFF</span>
-            <img
-              className="w-5"
-              src="https://cdn-icons-png.flaticon.com/512/126/126467.png"
-            />
-          </button>
         </div>
       )}
-    </header>
+    </div>
   );
 };
 

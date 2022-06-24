@@ -6,7 +6,7 @@ const GndBlogPost = ({ post }) => {
   const [liked, setLiked] = useState(false);
 
   return (
-    <div className="h-2/6 border bg-white p-2 text-black">
+    <div className={classNames("h-2/6 border bg-white p-2 text-black")}>
       {/* HEADER */}
       <div className="h-10 w-full inline-flex items-center p-2">
         {/* ID */}

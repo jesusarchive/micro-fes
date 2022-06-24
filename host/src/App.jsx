@@ -1,6 +1,6 @@
 import GndBlog from "gnd/GndBlog";
 import GndHome from "gnd/GndHome";
-import Imms from "imms/Imms";
+import ImmsHome from "imms/ImmsHome";
 import IraHome from "ira/IraHome";
 import IraProducts from "ira/IraProducts";
 import React, { useState } from "react";
@@ -17,16 +17,21 @@ const App = () => {
   const [selectedApp, setSelectedApp] = useState("ira-home");
 
   return (
-    <div className="h-screen w-full flex flex-col bg-black text-white">
-      <SgaPortalHeader auth={auth} onExit={() => setAuth(false)} />
+    <div className="h-screen w-full flex flex-col">
+      <SgaPortalHeader
+        auth={auth}
+        onExit={() => setAuth(false)}
+        selectedView={selectedApp}
+        onViewChange={setSelectedApp}
+      />
 
       {!auth ? (
         <SgaPortalAuth onAuth={() => setAuth(!auth)} />
       ) : (
-        <article className="h-full w-full flex overflow-hidden">
-          <SgaPortalNavbar onChange={setSelectedApp} selected={selectedApp} />
+        <article className="h-full w-full inline-flex overflow-hidden">
+          {/* <SgaPortalNavbar onChange={setSelectedApp} selected={selectedApp} /> */}
 
-          <div className="w-10/12 h-50">
+          <div className="h-full w-full">
             {/* IRA */}
             {selectedApp === "ira-home" && <IraHome />}
             {selectedApp === "ira-products" && <IraProducts />}
@@ -34,7 +39,7 @@ const App = () => {
             {selectedApp === "gnd-home" && <GndHome />}
             {selectedApp === "gnd-blog" && <GndBlog />}
             {/* IMMS */}
-            {selectedApp === "imms" && <Imms />}
+            {selectedApp === "imms-home" && <ImmsHome />}
           </div>
         </article>
       )}
