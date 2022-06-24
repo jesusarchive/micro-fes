@@ -45,7 +45,8 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        "./Gnd": "./src/Gnd.jsx",
+        "./GndHome": "./src/views/gnd-home/index.js",
+        "./GndBlog": "./src/views/gnd-blog/index.js",
       },
       shared: {
         ...deps,
