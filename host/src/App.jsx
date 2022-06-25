@@ -1,6 +1,7 @@
 import GndBlog from "gnd/GndBlog";
 import GndHome from "gnd/GndHome";
 import ImmsHome from "imms/ImmsHome";
+import ImmsUsers from "imms/ImmsUsers";
 import IraHome from "ira/IraHome";
 import IraProducts from "ira/IraProducts";
 import React, { useState } from "react";
@@ -8,7 +9,6 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import SgaPortalFooter from "./components/sga-portal-footer";
 import SgaPortalHeader from "./components/sga-portal-header";
-import SgaPortalNavbar from "./components/sga-portal-navbar";
 import "./index.scss";
 import SgaPortalAuth from "./views/sga-portal-auth/sga-portal-auth";
 
@@ -40,6 +40,7 @@ const App = () => {
             {selectedApp === "gnd-blog" && <GndBlog />}
             {/* IMMS */}
             {selectedApp === "imms-home" && <ImmsHome />}
+            {selectedApp === "imms-users" && <ImmsUsers />}
           </div>
         </article>
       )}

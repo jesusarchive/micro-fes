@@ -20,11 +20,11 @@ const IraProducts = ({}) => {
   }, []);
 
   return (
-    <div className="h-full w-full flex flex-col text-3xl text-blue-700 p-4 bg-white overflow-hidden">
+    <div className="h-full w-full flex flex-col text-3xl text-blue-700 p-4 bg-white -hidden">
       <h2 className="text-3xl text-pink-700 p-8 mb-5">IRA PRODUCTS</h2>
 
       {Array.isArray(products) && products.length > 0 ? (
-        <div className="flex overflow-auto">
+        <div className="flex -auto">
           <table className="h-5/6 w-full border-2">
             <thead>
               <tr>
@@ -43,12 +43,12 @@ const IraProducts = ({}) => {
                 <tr key={`ira-products__tr--${i}`}>
                   {Object.values(product).map((value, i) => (
                     <td
-                      className="bg-white text-black capitalize border-2 text-center p-1 hover:bg-green-100 text-sm"
+                      className="bg-white text-black capitalize border-2 text-center p-1 hover:bg-yellow-100 text-sm"
                       key={`ira-products__td--${i}`}
                     >
                       {Array.isArray(value) ? (
                         value.length > 0 && (
-                          <div className="h-30 w-30 flex inline-flex items-center overflow-scroll">
+                          <div className="h-30 w-30 flex inline-flex items-center -scroll">
                             {value.map(
                               (v) =>
                                 v.includes("http") && (

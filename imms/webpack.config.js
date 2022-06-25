@@ -46,6 +46,7 @@ module.exports = {
       remotes: {},
       exposes: {
         "./ImmsHome": "./src/views/imms-home/index.js",
+        "./ImmsUsers": "./src/views/imms-users/index.js",
       },
       shared: {
         ...deps,

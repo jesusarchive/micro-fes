@@ -7,6 +7,7 @@ const appsViewsMock = [
   { id: "gnd-home", name: "gnd home" },
   { id: "gnd-blog", name: "gnd blog" },
   { id: "imms-home", name: "imms home" },
+  { id: "imms-users", name: "imms users" },
 ];
 
 const SgaPortalHeader = ({ auth, selectedView, onViewChange, onExit }) => {
