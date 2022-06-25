@@ -27,21 +27,24 @@ const ImmsUsers = ({}) => {
           <table className="h-5/6 w-full table-auto">
             <thead>
               <tr>
-                {Object.keys(users[0]).map((key, i) => (
-                  <th
-                    className="bg-pink-100 text-blue-600 capitalize p-5 text-sm border hover:bg-pink-200"
-                    key={`gnd-users__th--${i}`}
-                  >
-                    {key}
-                  </th>
-                ))}
+                {Object.keys(users[0])
+                  .filter((v) => "password" !== v)
+                  .map((key, i) => (
+                    <th
+                      className="bg-pink-100 text-blue-600 capitalize p-5 text-sm border hover:bg-pink-200"
+                      key={`gnd-users__th--${i}`}
+                    >
+                      {key}
+                    </th>
+                  ))}
               </tr>
             </thead>
             <tbody>
               {users.map((user, i) => (
                 <tr key={`gnd-users__tr--${i}`}>
-                  {Object.values({ ...user, password: "**********" }).map(
-                    (value, i) => (
+                  {Object.values({ ...user, password: undefined })
+                    .filter(Boolean)
+                    .map((value, i) => (
                       <td
                         className="bg-pink-100 text-black capitalize text-center p-2 hover:bg-pink-200 text-sm border"
                         key={`gnd-users__td--${i}`}
@@ -65,8 +68,7 @@ const ImmsUsers = ({}) => {
                           JSON.stringify(value)
                         )}
                       </td>
-                    )
-                  )}
+                    ))}
                 </tr>
               ))}
             </tbody>
