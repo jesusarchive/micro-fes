@@ -29,7 +29,7 @@ const ImmsUsers = ({}) => {
               <tr>
                 {Object.keys(users[0]).map((key, i) => (
                   <th
-                    className="bg-pink-100 text-blue-600 capitalize p-2 text-sm border"
+                    className="bg-pink-100 text-blue-600 capitalize p-5 text-sm border"
                     key={`gnd-users__th--${i}`}
                   >
                     {key}
@@ -40,10 +40,10 @@ const ImmsUsers = ({}) => {
             <tbody>
               {users.map((user, i) => (
                 <tr key={`gnd-users__tr--${i}`}>
-                  {Object.values({ ...user, password: "*********" }).map(
+                  {Object.values({ ...user, password: "**********" }).map(
                     (value, i) => (
                       <td
-                        className="bg-pink-100 text-black capitalize text-center p-1 hover:bg-yellow-100 text-sm border"
+                        className="bg-pink-100 text-black capitalize text-center p-2 hover:bg-yellow-100 text-sm border"
                         key={`gnd-users__td--${i}`}
                       >
                         {Array.isArray(value) ? (

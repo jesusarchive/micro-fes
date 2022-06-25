@@ -2,9 +2,9 @@ import React from "react";
 
 const SgaPortalAuth = ({ onAuth }) => {
   return (
-    <div className="h-screen w-full flex flex-col items-center justify-around bg-white text-black">
-      <div className="h-96 w-2/6 border-2 flex flex-col justify-around p-3 self-center">
-        <h1 className="text-xl text-bold p-2">LOGIN</h1>
+    <div className="h-screen w-full flex flex-col items-center justify-around bg-gray-100 text-black">
+      <div className="h-96 w-2/6 border-2 flex flex-col justify-around p-3 self-center bg-white rounded border-gray-200">
+        <h1 className="text-2xl text-bold p-2">LOGIN</h1>
 
         <form className="flex flex-col p-2" action="">
           <input className="border-2 p-2" type="text" placeholder="User" />
@@ -14,7 +14,7 @@ const SgaPortalAuth = ({ onAuth }) => {
             placeholder="Password"
           />
           <button
-            className="text-red-200 bg-black p-2 mt-5"
+            className="text-red-200 bg-black p-2 mt-2 hover:text-green-300 hover:bg-gray-600"
             type="submit"
             onClick={onAuth}
           >
@@ -23,7 +23,7 @@ const SgaPortalAuth = ({ onAuth }) => {
         </form>
       </div>
 
-      <div className="w-2/6 h-2/6 flex">
+      <div className="w-1/6 h-2/6 flex">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           data-name="Layer 1"

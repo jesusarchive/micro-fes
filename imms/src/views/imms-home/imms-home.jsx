@@ -7,7 +7,16 @@ const ImmsHome = ({}) => {
         <div>Name: imms</div>
         <div>Framework: react</div>
         <div>Language: JavaScript</div>
-        <div>CSS: Tailwind</div>
+        <div>
+          Link:{" "}
+          <a
+            className="text-indigo-400 hover:text-black"
+            href="http://localhost:3002"
+            target="_blank"
+          >
+            localhost:3002
+          </a>
+        </div>
       </div>
 
       <div className="h-full w-full flex items-center justify-center">

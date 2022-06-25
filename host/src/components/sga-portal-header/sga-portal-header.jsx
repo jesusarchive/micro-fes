@@ -14,11 +14,11 @@ const SgaPortalHeader = ({ auth, selectedView, onViewChange, onExit }) => {
   return (
     <div
       className={classNames(
-        "h-50 w-full flex flex-row items-center border-b-2"
+        "h-1/6 w-full flex flex-row items-center border-b-2"
       )}
     >
       <h1 className="text-6xl text-bold p-5">HOST APP</h1>
-      {auth && (
+      {auth ? (
         <div className="h-full w-full flex p-2 bg-red-100 items-end justify-around">
           <div className="w-full flex intems-center justify-between">
             <nav>
@@ -47,6 +47,8 @@ const SgaPortalHeader = ({ auth, selectedView, onViewChange, onExit }) => {
             </button>
           </div>
         </div>
+      ) : (
+        <div></div>
       )}
     </div>
   );
