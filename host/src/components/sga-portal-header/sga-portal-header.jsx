@@ -18,10 +18,10 @@ const SgaPortalHeader = ({ auth, selectedView, onViewChange, onExit }) => {
       )}
     >
       <h1 className="text-6xl text-bold p-5">HOST APP</h1>
-      {auth ? (
+      {auth && (
         <div className="h-full w-full flex p-2 bg-red-100 items-end justify-around">
           <div className="w-full flex intems-center justify-between">
-            <nav>
+            <nav className="w-full h-full flex overflow-auto">
               {appsViewsMock.map(({ id, name }) => (
                 <button
                   className={classNames(
@@ -47,8 +47,6 @@ const SgaPortalHeader = ({ auth, selectedView, onViewChange, onExit }) => {
             </button>
           </div>
         </div>
-      ) : (
-        <div></div>
       )}
     </div>
   );

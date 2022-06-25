@@ -29,6 +29,7 @@ const ImmsUsers = ({}) => {
               <tr>
                 {Object.keys(users[0])
                   .filter((v) => "password" !== v)
+                  .splice(0, 11)
                   .map((key, i) => (
                     <th
                       className="bg-pink-100 text-blue-600 capitalize p-5 text-sm border hover:bg-pink-200"
@@ -44,6 +45,7 @@ const ImmsUsers = ({}) => {
                 <tr key={`gnd-users__tr--${i}`}>
                   {Object.values({ ...user, password: undefined })
                     .filter(Boolean)
+                    .splice(0, 11)
                     .map((value, i) => (
                       <td
                         className="bg-pink-100 text-black capitalize text-center p-2 hover:bg-pink-200 text-sm border"
