@@ -43,7 +43,7 @@ const IraProducts = ({}) => {
                 <tr key={`ira-products__tr--${i}`}>
                   {Object.values(product).map((value, i) => (
                     <td
-                      className="bg-white text-black capitalize border-2 text-center p-1 hover:bg-green-100 text-sm"
+                      className="bg-white text-black capitalize border-2 text-center p-1 hover:bg-yellow-100 text-sm"
                       key={`ira-products__td--${i}`}
                     >
                       {Array.isArray(value) ? (
