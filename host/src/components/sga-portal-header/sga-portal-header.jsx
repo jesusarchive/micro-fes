@@ -67,7 +67,7 @@ const SgaPortalHeader = ({ auth, onExit }) => {
               <div className="w-20 h-full flex items-center justify-between invert hover:invert-0">
                 <span className="text-xs">LOG OFF</span>
                 <img
-                  className="w-4"
+                  className="w-4 saturate-200"
                   src="https://cdn-icons-png.flaticon.com/512/126/126467.png"
                 />
               </div>
