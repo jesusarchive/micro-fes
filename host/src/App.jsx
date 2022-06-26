@@ -4,16 +4,17 @@ import ImmsHome from "imms/ImmsHome";
 import ImmsUsers from "imms/ImmsUsers";
 import IraHome from "ira/IraHome";
 import IraProducts from "ira/IraProducts";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Routes, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SgaPortalFooter from "./components/sga-portal-footer";
 import SgaPortalHeader from "./components/sga-portal-header";
-import SgaPortalAuth from "./views/sga-portal-auth/sga-portal-auth";
+import SgaPortalAuth from "./views/sga-portal-auth";
+import SgaPortalHome from "./views/sga-portal-home";
 import "./index.scss";
 
 const App = () => {
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(true);
 
   return (
     <BrowserRouter>
@@ -27,14 +28,24 @@ const App = () => {
                 path="/login"
                 element={<SgaPortalAuth onAuth={() => setAuth(true)} />}
               />
-              <Route path="/home" element={<IraHome />} />
-              <Route path="/ira-home" element={<IraHome />} />
-              <Route path="/ira-home" element={<IraHome />} />
-              <Route path="/ira-products" element={<IraProducts />} />
-              <Route path="/gnd-home" element={<GndHome />} />
-              <Route path="/gnd-blog" element={<GndBlog />} />
-              <Route path="/imms-home" element={<ImmsHome />} />
-              <Route path="/imms-users" element={<ImmsUsers />} />
+
+              {!auth ? (
+                <Route
+                  path="/login"
+                  element={<SgaPortalAuth onAuth={() => setAuth(true)} />}
+                />
+              ) : (
+                <>
+                  <Route path="/" element={<SgaPortalHome />} />
+                  <Route path="/ira-home" element={<IraHome />} />
+                  <Route path="/ira-home" element={<IraHome />} />
+                  <Route path="/ira-products" element={<IraProducts />} />
+                  <Route path="/gnd-home" element={<GndHome />} />
+                  <Route path="/gnd-blog" element={<GndBlog />} />
+                  <Route path="/imms-home" element={<ImmsHome />} />
+                  <Route path="/imms-users" element={<ImmsUsers />} />
+                </>
+              )}
             </Routes>
           </div>
         </article>

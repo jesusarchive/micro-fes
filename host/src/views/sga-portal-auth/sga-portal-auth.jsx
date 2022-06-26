@@ -1,6 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const SgaPortalAuth = ({ onAuth }) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    onAuth();
+    navigate("/");
+  };
+
   return (
     <div className="h-screen w-full flex flex-col items-center justify-around bg-gray-100 text-black">
       <div className="h-96 w-2/6 border-2 flex flex-col justify-around p-3 self-center bg-white rounded border-gray-200">
@@ -16,7 +24,7 @@ const SgaPortalAuth = ({ onAuth }) => {
           <button
             className="text-red-200 bg-black p-2 mt-2 hover:text-green-300 hover:bg-gray-600"
             type="submit"
-            onClick={onAuth}
+            onClick={handleSubmit}
           >
             SUBMIT
           </button>
