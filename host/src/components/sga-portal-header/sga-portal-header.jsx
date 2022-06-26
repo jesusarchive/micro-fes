@@ -1,16 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { classNames } from "../../utils";
 
-const appsViewsMock = [
-  { id: "ira-home", name: "ira home" },
-  { id: "ira-products", name: "ira products" },
-  { id: "gnd-home", name: "gnd home" },
-  { id: "gnd-blog", name: "gnd blog" },
-  { id: "imms-home", name: "imms home" },
-  { id: "imms-users", name: "imms users" },
+const routes = [
+  { to: "ira-home", name: "ira home" },
+  { to: "ira-products", name: "ira products" },
+  { to: "gnd-home", name: "gnd home" },
+  { to: "gnd-blog", name: "gnd blog" },
+  { to: "imms-home", name: "imms home" },
+  { to: "imms-users", name: "imms users" },
 ];
 
-const SgaPortalHeader = ({ auth, selectedView, onViewChange, onExit }) => {
+const SgaPortalHeader = ({ auth, onExit }) => {
   return (
     <div
       className={classNames(
@@ -18,21 +19,25 @@ const SgaPortalHeader = ({ auth, selectedView, onViewChange, onExit }) => {
       )}
     >
       <h1 className="text-6xl text-bold p-5">HOST APP</h1>
+      <>{auth ? "AUTH" : "NO AUTH"}</>
       {auth && (
         <div className="h-full w-full flex p-2 bg-red-100 items-end justify-around">
           <div className="w-full flex intems-center justify-between">
-            <nav className="w-full h-full flex overflow-auto">
-              {appsViewsMock.map(({ id, name }) => (
-                <button
-                  className={classNames(
-                    "h-10 p-2 m-2 border-2 uppercase hover:bg-red-300",
-                    selectedView === id && "bg-red-200"
-                  )}
-                  onClick={() => onViewChange(id)}
-                >
-                  {name}
-                </button>
-              ))}
+            <nav className="w-full h-full flex bg-red-100 p-5">
+              <ul className="w-full flex flex-wrap items-end">
+                {routes.map(({ to, name }, i) => (
+                  <li key={`imms-nav-li--${i}`}>
+                    <Link
+                      className={classNames(
+                        "h-10 p-2 m-2 border-2 uppercase hover:bg-red-300"
+                      )}
+                      to={to}
+                    >
+                      {name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </nav>
 
             <button

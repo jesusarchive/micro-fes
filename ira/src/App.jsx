@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import IraHeader from "./components/ira-header";
-import "./index.scss";
 import IraHome from "./views/ira-home";
 import IraProducts from "./views/ira-products";
+import "./index.scss";
 
 const App = () => {
-  const [view, setView] = useState("home");
   return (
-    <div className="h-screen w-full flex flex-col items-center justify-between">
-      <IraHeader selectedView={view} onViewChange={setView} />
-      {view === "home" ? <IraHome /> : <IraProducts />}
-    </div>
+    <BrowserRouter>
+      <div className="h-screen w-full flex flex-col justify-between">
+        <IraHeader />
+        <Routes>
+          <Route path="/" element={<IraHome />} />
+          <Route path="/products" element={<IraProducts />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 };
 

@@ -4,57 +4,50 @@ import ImmsHome from "imms/ImmsHome";
 import ImmsUsers from "imms/ImmsUsers";
 import IraHome from "ira/IraHome";
 import IraProducts from "ira/IraProducts";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Redirect } from "react-router-dom";
 import SgaPortalFooter from "./components/sga-portal-footer";
 import SgaPortalHeader from "./components/sga-portal-header";
-import "./index.scss";
 import SgaPortalAuth from "./views/sga-portal-auth/sga-portal-auth";
+import "./index.scss";
 
 const App = () => {
-  const [auth, setAuth] = useState(true);
-  const [selectedApp, setSelectedApp] = useState("ira-home");
+  const [auth, setAuth] = useState(false);
 
   return (
-    <div className="h-screen w-full flex flex-col">
-      <SgaPortalHeader
-        auth={auth}
-        onExit={() => setAuth(false)}
-        selectedView={selectedApp}
-        onViewChange={setSelectedApp}
-      />
+    <BrowserRouter>
+      <div className="h-screen w-full flex flex-col justify-between">
+        <SgaPortalHeader auth={auth} onExit={() => setAuth(false)} />
 
-      {!auth ? (
-        <SgaPortalAuth onAuth={() => setAuth(!auth)} />
-      ) : (
         <article className="h-full w-full inline-flex overflow-hidden">
-          {/* <SgaPortalNavbar onChange={setSelectedApp} selected={selectedApp} /> */}
-
           <div className="h-full w-full">
-            {/* IRA */}
-            {selectedApp === "ira-home" && <IraHome />}
-            {selectedApp === "ira-products" && <IraProducts />}
-            {/* GND */}
-            {selectedApp === "gnd-home" && <GndHome />}
-            {selectedApp === "gnd-blog" && <GndBlog />}
-            {/* IMMS */}
-            {selectedApp === "imms-home" && <ImmsHome />}
-            {selectedApp === "imms-users" && <ImmsUsers />}
+            <Routes>
+              <Route
+                path="/login"
+                element={<SgaPortalAuth onAuth={() => setAuth(true)} />}
+              />
+              <Route path="/home" element={<IraHome />} />
+              <Route path="/ira-home" element={<IraHome />} />
+              <Route path="/ira-home" element={<IraHome />} />
+              <Route path="/ira-products" element={<IraProducts />} />
+              <Route path="/gnd-home" element={<GndHome />} />
+              <Route path="/gnd-blog" element={<GndBlog />} />
+              <Route path="/imms-home" element={<ImmsHome />} />
+              <Route path="/imms-users" element={<ImmsUsers />} />
+            </Routes>
           </div>
         </article>
-      )}
 
-      <SgaPortalFooter />
-    </div>
+        <SgaPortalFooter />
+      </div>
+    </BrowserRouter>
   );
 };
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <App />
   </React.StrictMode>,
   document.getElementById("app")
 );
